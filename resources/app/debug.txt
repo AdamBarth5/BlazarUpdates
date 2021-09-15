@@ -1,0 +1,9 @@
+
+
+NS_ERROR_PROXY_CONNECTION_REFUSED
+=========================== logs ===========================
+navigating to "https://www.bestbuy.com/?intl=nosplash", waiting until "load"
+============================================================
+text: expected string, got object
+text: expected string, got object
+text: expected string, got object

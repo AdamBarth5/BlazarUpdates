@@ -1,0 +1,14 @@
+node_modules
+*.spec
+*.toc
+*.pyz
+*.pkg
+*.manifest
+*.json
+buildFile
+test.py
+dist
+build
+__pycache__
+*.png
+*.old

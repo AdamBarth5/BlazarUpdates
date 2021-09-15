@@ -24,6 +24,7 @@
     "bootstrap": "^3.4.1",
     "discord-rich-presence": "0.0.8",
     "fernet": "git+https://github.com/csquared/fernet.js.git",
-    "jquery": "^3.6.0"
+    "jquery": "^3.6.0",
+    "simple-git": "^2.45.1"
   }
 }

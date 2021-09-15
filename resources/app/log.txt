@@ -1,0 +1,1 @@
+<bound method Api.nike of <__main__.Api object at 0x000001FA37599F10>>

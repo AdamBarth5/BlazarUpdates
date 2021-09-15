@@ -1,8 +1,1 @@
-{
-    "webhook": "",
-    "2cap": "",
-    "anticap": "",
-    "capmonster": "",
-    "smsru": "",
-    "catchall": {}
-}
+{"webhook":"","2cap":"","anticap":"","capmonster":"","smsru":"","catchall":{"email":"","password":""}}

@@ -62,7 +62,7 @@ ipcMain.on('main-window', ()=>{
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
-      devTools: true,
+      devTools: false,
       preload: path.join(__dirname, 'preload.js')
     }
   })
@@ -163,7 +163,7 @@ ipcMain.on('loading-window', ()=>{
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
-      devTools: true,
+      devTools: false,
       preload: path.join(__dirname, 'preload.js')
     }
   })
