@@ -1,0 +1,29 @@
+{
+  "name": "BlazarAIO",
+  "version": "1.0.0",
+  "description": "Blazar 2.0",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": "https://github.com/electron/electron-quick-start",
+  "keywords": [
+    "Electron",
+    "quick",
+    "start",
+    "tutorial",
+    "demo"
+  ],
+  "author": "GitHub",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron": "^13.1.4",
+    "electron-packager": "^15.3.0"
+  },
+  "dependencies": {
+    "bootstrap": "^3.4.1",
+    "discord-rich-presence": "0.0.8",
+    "fernet": "git+https://github.com/csquared/fernet.js.git",
+    "jquery": "^3.6.0"
+  }
+}

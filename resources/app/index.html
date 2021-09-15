@@ -1,0 +1,1555 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap'>
+<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/toast.css">
+<link rel="stylesheet" href="css/nice.css">
+<link rel="stylesheet" href="css/brands.css">
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!-- <button class="test-full-screen-button" id="full">FULL SCREEN</button> -->
+
+
+
+<div class="bot-container">
+    <div class="bg-image"></div>
+    <img class="blaz-logo" src="css/img/logo.png">
+    <div class="dragplate"></div>
+
+    <!-- <div class="center-aligner"></div> -->
+
+
+      <div class="window-options">
+        
+        <div id="quitMain" class="window-button float-right"><i class="fas fa-times"></i></div>
+        <!-- <div id="maximize" class="window-button float-right"><i class="far fa-square"></i></div> -->
+        <div id="minimizeMain" class="window-button float-right"><i class="fas fa-minus"></i></div>
+      </div>
+  
+      <div class="naviator">
+
+    
+        <div class="navbarx">
+          <div id="navtracer" class="nv-tracer"></div>
+        </div>
+        
+        <div class="navbarx">
+          <div id="defaultOpen" onclick="openTab(event, 'Dashboard')" class="nv-item dashboard">Dashboard</div>          
+          <div id="tasks" onclick="openTab(event, 'Tasks')" class="nv-item">Tasks</div>         
+          <div id="profiles" onclick="openTab(event, 'Profiles')" class="nv-item">Profiles</div>
+          <div id="proxies" onclick="openTab(event, 'Proxies')" class="nv-item">Proxies</div>
+          <div id="accounts" onclick="openTab(event, 'Accounts')" class="nv-item">Accounts</div>
+          <div id="settings" onclick="openTab(event, 'Settings')" class="nv-item">Settings</div>
+        </div>
+      </div>
+
+
+      <div id="Dashboard" class="content-container tabcontent">
+        
+        
+        <div class="dash-left">
+          <div class="size1">
+            <div id="task-counter" class="stat-large">102</div>
+            <div class="stat-large-text">TASKS</div>
+          </div>
+          <div class="size2">
+            <div class="stat-head">HISTORY <b>CHART</b></div>
+            <div style="zoom: 70%;margin-top: 10px;margin-left: 100px;" class="multi-graph">
+              HISTORY
+              <div class="graph" data-name="background" style="--percentage : 100; --fill: rgba(0,0,0,0.1) ;">
+              </div>
+              <div class="graph" data-name="Failed" style="--percentage : 80; --fill: #e06666 ;">
+              </div>
+              <div class="graph" data-name="Success" style="--percentage : 50; --fill: #6fe066 ;">
+              </div>
+              </div>
+          </div>
+          
+          <div class="size2">
+            <div class="dashoverlayme">GO TO <b>DASHBOARD</b></div>
+              <div class="renestat">
+                  <div class="stat-head">ACCOUNT <b>STATS</b></div>
+                  
+                  <div class="renewal-title"><b>28</b> days until renwal</div>
+                  <div class="renewal-bar">
+                    <div class="renewal-bar-progress"></div>
+                  </div>
+              </div>
+          </div>
+          <div class="size1">
+            <div class="stat-large" style="color: #f1ff75;">
+              <i class="fas fa-bolt"></i>
+              <b id="proxy-counter" class="stat-large-counter-text">
+                102
+              </b>
+            </div>
+              
+            <div class="stat-large-text">PROXIES</div>
+          </div>
+          
+          <div class="size1">
+            <div class="stat-large" style="color: #7cff75;">
+              <i class="fas fa-clipboard-list"></i>
+              <b id="success-counter" class="stat-large-counter-text">
+                102
+              </b>
+            </div>
+            <div class="stat-large-text">SUCCESSES</div>
+          </div>
+          <div class="size1">
+            <div class="stat-large" style="color: #ffb875;">
+              <i class="fas fa-pause-circle"></i> 
+              <b id="idle-counter" class="stat-large-counter-text">
+                102
+              </b>
+            </div>
+            <div class="stat-large-text">IDLE</div>
+          </div>
+          <div class="size1">
+            <div class="stat-large" style="color: #ff7575;">
+              <i class="fas fa-times-circle"></i>
+              <b id="failed-counter" class="stat-large-counter-text">
+                102
+              </b>
+              </div>
+            <div class="stat-large-text">FAILED</div>
+          </div>
+          
+        </div>
+        
+        <div class="dash-right">
+          <div id="tweetDash"></div>
+        </div>
+        
+      </div>
+
+
+      </div>
+
+      <div id="Tasks" style="overflow-x: hidden;" class="content-container tabcontent">
+          
+        <div class="tasks-cap">
+
+           <div class="profile-title-count"><b id="tasksTotalCount">0</b> Tasks</div>
+        
+           <div id="createTaskButton" data-toggle="modal" data-target="#createTaskModal" class="checkupdate floatRight button-sting createButton">
+           <div class="button-sting-icon"><i class="fas fa-user-plus" aria-hidden="true"></i></div>
+           Create Task
+         </div>
+
+        </div>
+        <div class="tasks-con">
+          <table style="width: 100%;margin-bottom: 10px;display: none;">
+            <thead class="table-top tableFixHead" style="position: sticky;">
+              <th class="rounded-left">Email</th>
+              <th>Name</th>
+              <th>Password</th>
+              <th class="rounded-right">Actions</th>
+            </thead>
+            <tbody>
+            <tr>
+              <td class="rounded-left">Exmaple@imsoxela.com</td>
+              <td>xela xela</td>
+              <td>********</td>
+              <td class="rounded-right">
+                <button class="action-butt" data-toggle="tooltip" data-placement="top" title="Play task!"><i class="fas fa-play"></i></button>
+                <button class="action-butt" data-toggle="tooltip" data-placement="top" title="Go to login!"><i class="fas fa-share"></i></button>
+                <button class="action-butt" data-toggle="tooltip" data-placement="top" title="Delete from list"><i class="fas fa-trash-alt"></i></button>
+                <button class="action-butt" data-toggle="tooltip" data-placement="top" title="copy"><i class="fas fa-copy"></i></button>
+              </td>
+            </tr>
+          </tbody>
+          
+            
+          </table>
+          <!--BestBuy-->
+          <button class="account-collapsible">
+            <div class="collapsible-brand bestbuy-acc"></div>
+            <div class="account-collapsible-store-name">Best Buy</div>
+            <div class="account-collapsible-amount"><!--<b id="bestBuyTaskCount">0</b> Tasks--></div>
+          </button>
+          <div class="account-content">
+
+            <table id="bestBuyTable" style="width: 100%;margin-bottom: 10px;">
+              <tr class="table-top">
+                <th class="rounded-left">Type</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>Status</th>
+                <!--<th class="rounded-right">Actions</th>-->
+              </tr>
+            
+              <!--<tr>
+                <td class="rounded-left">Exmaple@imsoxela.com</td>
+                <td>xela@gmail</td>
+                <td>********</td>
+                <td>Idle</td>
+                <td class="rounded-right">
+                  <button class="action-butt" data-toggle="tooltip" data-placement="top" title="Play task!"><i class="fas fa-play"></i></button>
+                  <button class="action-butt" data-toggle="tooltip" data-placement="top" title="Go to login!"><i class="fas fa-share"></i></button>
+                  <button class="action-butt" data-toggle="tooltip" data-placement="top" title="Delete from list"><i class="fas fa-trash-alt"></i></button>
+                  <button class="action-butt" data-toggle="tooltip" data-placement="top" title="copy"><i class="fas fa-copy"></i></button>
+                </td>
+              </tr>-->
+                    
+            
+              
+            </table>
+
+          </div>
+            <!--Amazon-->
+            <button class="account-collapsible">
+            <div class="collapsible-brand amazon-acc"></div>
+            <div class="account-collapsible-store-name">Amazon</div>
+            <div class="account-collapsible-amount"><!--<b id="amazonTaskCount">0</b> Tasks</div>-->
+          </button>
+          <div class="account-content">
+            <table id="amazonTable" style="width: 100%;margin-bottom: 10px;">
+              <tr class="table-top">
+                <th class="rounded-left">Type</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>Status</th>
+                <!--<th class="rounded-right">Actions</th>-->
+              </tr>
+            
+              <!--<tr>
+                <td class="rounded-left">Exmaple@imsoxela.com</td>
+                <td>xela@gmail</td>
+                <td>********</td>
+                <td>Idle</td>
+                <td class="rounded-right">
+                  <button class="action-butt" data-toggle="tooltip" data-placement="top" title="Play task!"><i class="fas fa-play"></i></button>
+                  <button class="action-butt" data-toggle="tooltip" data-placement="top" title="Go to login!"><i class="fas fa-share"></i></button>
+                  <button class="action-butt" data-toggle="tooltip" data-placement="top" title="Delete from list"><i class="fas fa-trash-alt"></i></button>
+                  <button class="action-butt" data-toggle="tooltip" data-placement="top" title="copy"><i class="fas fa-copy"></i></button>
+                </td>-->
+              </tr>
+              
+            </table>
+
+          </div>
+
+          <button class="account-collapsible">
+            <div class="collapsible-brand nike-acc"></div>
+            <div class="account-collapsible-store-name">Nike</div>
+            <div class="account-collapsible-amount"><!--<b id="amazonTaskCount">0</b> Tasks</div>-->
+          </button>
+          <div class="account-content">
+            <table id="nikeTable" style="width: 100%;margin-bottom: 10px;">
+              <tr class="table-top">
+                <th class="rounded-left">Type</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>Status</th>
+                <!--<th class="rounded-right">Actions</th>-->
+              </tr>
+            
+              <!--<tr>
+                <td class="rounded-left">Exmaple@imsoxela.com</td>
+                <td>xela@gmail</td>
+                <td>********</td>
+                <td>Idle</td>
+                <td class="rounded-right">
+                  <button class="action-butt" data-toggle="tooltip" data-placement="top" title="Play task!"><i class="fas fa-play"></i></button>
+                  <button class="action-butt" data-toggle="tooltip" data-placement="top" title="Go to login!"><i class="fas fa-share"></i></button>
+                  <button class="action-butt" data-toggle="tooltip" data-placement="top" title="Delete from list"><i class="fas fa-trash-alt"></i></button>
+                  <button class="action-butt" data-toggle="tooltip" data-placement="top" title="copy"><i class="fas fa-copy"></i></button>
+                </td>-->
+              </tr>
+              
+            </table>
+
+          </div>
+
+          <!--<button class="account-collapsible">
+            <div class="collapsible-brand walmart-acc"></div>
+            <div class="account-collapsible-store-name">Walmart</div>
+            <div class="account-collapsible-amount"><b id="amazonTaskCount">0</b> Tasks</div>
+          </button>
+          <div class="account-content">
+            <table id="walmartTable" style="width: 100%;margin-bottom: 10px;">
+              <tr class="table-top">
+                <th class="rounded-left">Type</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>Status</th>
+                <th class="rounded-right">Actions</th>
+              </tr>-->
+            
+              <!--<tr>
+                <td class="rounded-left">Exmaple@imsoxela.com</td>
+                <td>xela@gmail</td>
+                <td>********</td>
+                <td>Idle</td>
+                <td class="rounded-right">
+                  <button class="action-butt" data-toggle="tooltip" data-placement="top" title="Play task!"><i class="fas fa-play"></i></button>
+                  <button class="action-butt" data-toggle="tooltip" data-placement="top" title="Go to login!"><i class="fas fa-share"></i></button>
+                  <button class="action-butt" data-toggle="tooltip" data-placement="top" title="Delete from list"><i class="fas fa-trash-alt"></i></button>
+                  <button class="action-butt" data-toggle="tooltip" data-placement="top" title="copy"><i class="fas fa-copy"></i></button>
+                </td>-->
+              </tr>
+              
+            </table>
+
+          </div>
+           
+        </div>  
+         
+    </div>  
+
+      <div id="Profiles" class="content-container tabcontent">
+          
+        <div class="tasks-cap">
+          <div id="profile-counter" class="profile-title-count"></div>
+          
+          
+          <!-- <div class="floatRight button-sting exportButton">
+            <div class="button-sting-icon"><i class="fas fa-download"></i></div>
+            Export
+          </div>
+          <div class="floatRight button-sting importButton">
+            <div class="button-sting-icon"><i class="fas fa-upload"></i></div>
+            Import
+          </div>
+          -->
+            <div data-toggle="modal" data-target="#createProfileModal" class="checkupdate floatRight button-sting createButton createProfileButton">
+            <div class="button-sting-icon"><i class="fas fa-user-plus"></i></div>
+            Create profile
+          </div>
+          
+        </div>
+      
+        <div class="profile-holder">
+
+          <!-- <div class="size1 improfile">
+            <div class="profile-icon"><i class="fas fa-child"></i></div>
+            <div class="profile-name">XELA</div>
+            <div class="profile-title">PROFILE 1</div>
+            
+            <div class="profile-button-holder">
+              <div data-toggle="tooltip" data-placement="top" title="Edit profile" id="profileEdit" class="profile-button-handler profile-edit-button"><i class="fas fa-pencil-alt"></i></div>
+              <div data-toggle="tooltip" data-placement="top" title="Delete profile" id="profileDelete" class="profile-button-handler profile-delete-button"><i class="fas fa-trash-alt"></i></div>
+            </div>
+          </div> -->
+          
+        </div>
+
+    
+      </div>
+
+      <div id="Proxies" class="content-container tabcontent">
+          
+        <div class="tasks-cap">
+          <div id="proxy-total-count" class="profile-title-count"></div>
+          
+          
+           <!--<div class="floatRight button-sting exportButton">
+            <div class="button-sting-icon"><i class="fas fa-download"></i></div>
+            Export
+          </div>
+          <div class="floatRight button-sting importButton">
+            <div class="button-sting-icon"><i class="fas fa-upload"></i></div>
+            Import
+          </div>
+        -->
+            <div data-toggle="modal" data-target="#addProxyModal" class="checkupdate floatRight button-sting createButton createProxyButton">
+            <div class="button-sting-icon"><i class="fas fa-user-plus"></i></div>
+            Create proxy list
+          </div>
+          
+        </div>
+      
+        <div class="proxy-holder">
+        </div>
+
+    
+      </div>
+
+      <div id="Accounts" class="content-container tabcontent">
+
+        <div class="tasks-cap">
+          <!--<div class="l search-for-bars">
+
+            <div style="padding-left: 0px;" class="input-row">
+              <div class="input search-bar">
+              <div class="search-input-name">Search Accounts</div>
+              <input id="accountsFilter" placeholder="Search...">
+              </div>
+            </div>
+  
+          </div>
+          -->
+          <div id="wipeAccounts" class="floatRight button-sting exportButton">
+            <div class="button-sting-icon"><i class="fas fa-download"></i></div>
+            Wipe Accounts
+          </div>
+          <!--
+          <div class="floatRight button-sting importButton">
+            <div class="button-sting-icon"><i class="fas fa-upload"></i></div>
+            Import
+          </div>-->
+          
+            <div id="exportAccounts" class="checkupdate floatRight button-sting createButton">
+              <div class="button-sting-icon"><i class="fas fa-user-plus"></i></div>
+              Export Accounts
+          </div>
+
+        </div>
+        <div class="account-con">
+          
+              <button class="account-collapsible">
+                <div class="collapsible-brand bestbuy-acc"></div>
+                <div class="account-collapsible-store-name">Best Buy</div>
+                <div class="account-collapsible-amount"><!--<b>1</b> Accounts--></div>
+              </button>
+              <div class="account-content">
+
+                <table id="bestBuyAccounts" style="width: 100%;margin-bottom: 10px;">
+                  <tr class="table-top">
+                    <th class="rounded-left">Email</th>
+                    <!--<th>Name</th>-->
+                    <th>Password</th>
+                    <!--<th class="rounded-right">Actions</th>-->
+                  </tr>
+                
+                  <!--<tr>
+                    <td class="rounded-left">Exmaple@imsoxela.com</td>
+                    <td>xela xela</td>
+                    <td>********</td>
+                    <td class="rounded-right">
+                      <button class="action-butt" data-toggle="tooltip" data-placement="top" title="Go to login!"><i class="fas fa-share"></i></button>
+                      <button class="action-butt" data-toggle="tooltip" data-placement="top" title="Delete from list"><i class="fas fa-trash-alt"></i></button>
+                      <button class="action-butt" data-toggle="tooltip" data-placement="top" title="copy"><i class="fas fa-copy"></i></button>
+                    </td>
+                  </tr>-->
+                        
+                
+                  
+                </table>
+
+              </div>
+                        
+              <button class="account-collapsible">
+                <div class="collapsible-brand amazon-acc"></div>
+                <div class="account-collapsible-store-name">Amazon</div>
+                <div class="account-collapsible-amount"><!--<b>1</b> Accounts--></div>
+              </button>
+              <div class="account-content">
+                <table id="amazonAccounts" style="width: 100%;margin-bottom: 10px;">
+                  <tr class="table-top">
+                    <th class="rounded-left">Email</th>
+                    <!--<th>Name</th>-->
+                    <th>Password</th>
+                    <!--<th class="rounded-right">Actions</th>-->
+                  </tr>
+                
+                  <!--<tr>
+                    <td class="rounded-left">Exmaple@imsoxela.com</td>
+                    <td>xela xela</td>
+                    <td>********</td>
+                    <td class="rounded-right">
+                      <button class="action-butt" data-toggle="tooltip" data-placement="top" title="Go to login!"><i class="fas fa-share"></i></button>
+                      <button class="action-butt" data-toggle="tooltip" data-placement="top" title="Delete from list"><i class="fas fa-trash-alt"></i></button>
+                      <button class="action-butt" data-toggle="tooltip" data-placement="top" title="copy"><i class="fas fa-copy"></i></button>
+                    </td>
+                  </tr>-->
+                </table>
+              </div>
+                  <button class="account-collapsible">
+                    <div class="collapsible-brand nike-acc"></div>
+                    <div class="account-collapsible-store-name">Nike</div>
+                    <div class="account-collapsible-amount"><!--<b>1</b> Accounts--></div>
+                  </button>
+                  <div class="account-content">
+                    <table id="nikeAccounts" style="width: 100%;margin-bottom: 10px;">
+                      <tr class="table-top">
+                        <th class="rounded-left">Email</th>
+                        <!--<th>Name</th>-->
+                        <th>Password</th>
+                        <!--<th class="rounded-right">Actions</th>-->
+                      </tr>
+                    
+                      <!--<tr>
+                    <td class="rounded-left">Exmaple@imsoxela.com</td>
+                    <td>xela xela</td>
+                    <td>********</td>
+                    <td class="rounded-right">
+                      <button class="action-butt" data-toggle="tooltip" data-placement="top" title="Go to login!"><i class="fas fa-share"></i></button>
+                      <button class="action-butt" data-toggle="tooltip" data-placement="top" title="Delete from list"><i class="fas fa-trash-alt"></i></button>
+                      <button class="action-butt" data-toggle="tooltip" data-placement="top" title="copy"><i class="fas fa-copy"></i></button>
+                    </td>
+                  </tr>-->
+                        
+                
+                  
+                  </table>
+                </div>
+
+                              
+                        
+                        
+        </div>  
+        
+
+      </div>
+
+      <div id="Settings" class="content-container tabcontent">
+          
+        <div class="account-cap">
+
+          <div id="reset-all-settings" class="setting-cap">Reset settings</div>
+          <div class="setting-cap">Reset stats</div>
+          <div class="setting-cap">Deactivate</div>
+
+        </div>
+        
+        <div class="account-con">
+            <!--The catchall receiver configuration-->
+          <button class="account-collapsible" style="padding-left: 10px;">
+            <div class="account-collapsible-store-name">Catchall settings</div>
+            <div class="account-collapsible-amount">Configure Catchall settings</div>
+          </button>
+          <div class="account-content">
+
+
+            <div class="setting-title">Catchall Settings</div>
+
+            <div class="input-row">
+              <div class="input">
+                <div class="input-name">Receiver Email</div>
+                <input id="catchallreceiver" placeholder="Receiver Email">
+              </div>
+            </div>
+            <div class="input-row">
+              <div class="input">
+                <div class="input-name">Receiver Password</div>
+                <input id="catchallpassword" placeholder="Receiver Password">
+              </div>
+            </div>
+            <div class="setting-button-holder">
+              <div id="resetcatchall" class="button-sting exportButton">
+                <div class="button-sting-icon"><i class="fas fa-download"></i></div>
+                Reset
+                </div>
+              <div id="savecatchall" class="button-sting importButton">
+                <div class="button-sting-icon"><i class="fas fa-upload"></i></div>
+                Save
+                </div>
+              </div>
+            </div>
+            
+
+
+            <button class="account-collapsible" style="padding-left: 10px;">
+              <div class="account-collapsible-store-name">Discord webhook settings</div>
+              <div class="account-collapsible-amount">success and failed webhooks</div>
+            </button>
+
+            <div class="account-content">
+
+              <div class="setting-title"><b>Discord</b> Webhook</div>
+
+              <div class="input-row">
+                <div class="input">
+                <div class="input-name">Discord Webhook</div>
+                <input id="discord-webhook" placeholder="Discord webhook">
+                </div>
+              </div>
+
+              <div class="setting-button-holder">
+
+              <div id="resetwebhook" class="button-sting exportButton">
+                <div class="button-sting-icon"><i class="fas fa-download"></i></div>
+                Reset
+              </div>
+              <div id="testwebhook" class="button-sting createButton">
+                <div class="button-sting-icon"><i class="fas fa-upload"></i></div>
+                Test
+              </div>
+              <div id="save-webhook" class="button-sting importButton">
+                <div class="button-sting-icon"><i class="fas fa-upload"></i></div>
+                Save
+              </div>
+
+              </div>
+
+            </div>
+                      
+            <button class="account-collapsible" style="padding-left: 10px;">
+              <div class="account-collapsible-store-name">2Captcha settings</div>
+              <div class="account-collapsible-amount">Configure 2Captcha settings</div>
+            </button>
+            <div class="account-content">
+              <div class="setting-title"><b>2</b>Captcha</div>
+
+              <div class="input-row">
+                <div class="input">
+                <div class="input-name">2Captcha</div>
+                <input id="2capkey" placeholder="2Captcha Key">
+                </div>
+              </div>
+
+              <div class="setting-button-holder">
+
+              <div id="reset2cap" class="button-sting exportButton">
+                <div class="button-sting-icon"><i class="fas fa-download"></i></div>
+                Reset
+              </div>
+              <div id="save2cap" class="button-sting importButton">
+                <div class="button-sting-icon"><i class="fas fa-upload"></i></div>
+                Save
+              </div>
+
+              </div>
+            </div>
+                      
+            <button class="account-collapsible" style="padding-left: 10px;">
+              <div class="account-collapsible-store-name">Anti-Captcha settings</div>
+              <div class="account-collapsible-amount">Configure Anti-Captcha settings</div>
+            </button>
+            <div class="account-content">
+              <div class="setting-title"><b>Anti</b>-Captcha</div>
+
+              <div class="input-row">
+                <div class="input">
+                <div class="input-name">Anti-Captcha</div>
+                <input id="anticapkey" placeholder="Anti-Captcha Key">
+                </div>
+              </div>
+
+              <div class="setting-button-holder">
+
+              <div id="resetanticap" class="button-sting exportButton">
+                <div class="button-sting-icon"><i class="fas fa-download"></i></div>
+                Reset
+              </div>
+              <div id="saveanticap" class="button-sting importButton">
+                <div class="button-sting-icon"><i class="fas fa-upload"></i></div>
+                Save
+              </div>
+
+              </div>
+            </div>
+                      
+            <!--<button class="account-collapsible" style="padding-left: 10px;">
+              <div class="account-collapsible-store-name">Captcha Monster settings</div>
+              <div class="account-collapsible-amount">Configure Captcha Monster settings</div>
+            </button>
+            <div class="account-content">
+              <div class="setting-title"><b>Captcha</b> Monster</div>
+
+              <div class="input-row">
+                <div class="input">
+                <div class="input-name">Captcha Monster</div>
+                <input id="capmonsterkey" placeholder="Captcha Monster Key">
+                </div>
+              </div>
+
+              <div class="setting-button-holder">
+
+              <div id="resetcapmonster" class="button-sting exportButton">
+                <div  class="button-sting-icon"><i class="fas fa-download"></i></div>
+                Reset
+              </div>
+              <div id="savecapmonster" class="button-sting importButton">
+                <div class="button-sting-icon"><i class="fas fa-upload"></i></div>
+                Save
+              </div>
+
+              </div>
+            </div> --> 
+            
+            
+            <button class="account-collapsible" style="padding-left: 10px;">
+              <div class="account-collapsible-store-name">SMSRU settings</div>
+              <div class="account-collapsible-amount">Configure SMSRU settings</div>
+            </button>
+            <div class="account-content">
+              <div class="setting-title"><b>SMS</b>RU</div>
+
+              <div class="input-row">
+                <div class="input">
+                <div class="input-name">SMSRU</div>
+                <input id="smsrukey" placeholder="API Key">
+                </div>
+              </div>
+
+              <div class="setting-button-holder">
+
+              <div id="resetsmsru" class="button-sting exportButton">
+                <div  class="button-sting-icon"><i class="fas fa-download"></i></div>
+                Reset
+              </div>
+              <div id="savesmsru" class="button-sting importButton">
+                <div class="button-sting-icon"><i class="fas fa-upload"></i></div>
+                Save
+              </div>
+
+              </div>
+            </div>     
+          
+          
+        </div>  
+        
+      </div>
+
+</div>  
+  
+
+
+  <!-- Add Account Modal -->
+
+<div class="modal fade profileModalReset" id="addAccountModal" role="dialog">
+  <div class="modal-dialog">
+  
+<!-- Modal content-->
+<div style="margin-top: -100px;" class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close proxyModalReset" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Add Account</h4>
+      </div>
+      <!--
+      <div class="modal-body">
+
+
+        <div style="display: none;" class="AddAccountStage0">
+
+          
+          <div class="account-add-container-select-store">
+            <label data-toggle="tooltip" data-placement="top" title="Best Buy" class="brand-select-container">
+              <input type="radio" checked="checked" name="addAccountBrand">
+              <div class="brand-select bestbuy-acc"></div>
+            </label>
+            <label data-toggle="tooltip" data-placement="top" title="Amazon" class="brand-select-container">
+              <input type="radio" name="addAccountBrand">
+              <div class="brand-select amazon-acc"></div>
+            </label>
+            <label data-toggle="tooltip" data-placement="top" title="Nike" class="brand-select-container">
+              <input type="radio" name="addAccountBrand">
+              <div class="brand-select nike-acc"></div>
+            </label>
+            <label data-toggle="tooltip" data-placement="top" title="Outlook" class="brand-select-container">
+              <input type="radio" name="addAccountBrand">
+              <div class="brand-select outlook-acc"></div>
+            </label>
+            <label data-toggle="tooltip" data-placement="top" title="Gmail" class="brand-select-container">
+              <input type="radio" name="addAccountBrand">
+              <div class="brand-select gmail-acc"></div>
+            </label>
+            <label data-toggle="tooltip" data-placement="top" title="Discord" class="brand-select-container">
+              <input type="radio" name="addAccountBrand">
+              <div class="brand-select discord-acc"></div>
+            </label>
+            <label data-toggle="tooltip" data-placement="top" title="Shopify" class="brand-select-container">
+              <input type="radio" name="addAccountBrand">
+              <div class="brand-select shopify-acc"></div>
+            </label>
+            <label data-toggle="tooltip" data-placement="top" title="Walmart" class="brand-select-container">
+              <input type="radio" name="addAccountBrand">
+              <div class="brand-select walmart-acc"></div>
+            </label>
+          </div>
+
+          <div class="profile-create-button-holder">
+              <div class="checkupdate profile-create-button previousAddAccountStage addAccountModalReset" data-dismiss="modal">Cancel</div>
+              <div class="checkupdate profile-create-button nextAddAccountStage">Next</div>
+          </div>
+        
+        </div>
+-->
+        <div style="display: none;" class="AddAccountStage1">
+
+          <div class="input-row">
+            <div class="input">
+            <div class="input-name">Account Email</div>
+            <input id="accountEmail" placeholder="Account Email">
+            </div>
+          </div>
+        
+          <div class="input-row">
+            <div class="input">
+            <div class="input-name">Account Name</div>
+            <input id="accountEmail" placeholder="Account Name">
+            </div>
+          </div>
+        
+          <div class="input-row">
+            <div class="input">
+            <div class="input-name">Account Password</div>
+            <input id="accountEmail" placeholder="Account Password">
+            </div>
+          </div>
+        
+          <div class="profile-create-button-holder">
+              <div class="checkupdate profile-create-button previousAddAccountStage">Back</div>
+              <div class="checkupdate profile-create-button addAccountModalReset" data-dismiss="modal">Done</div>
+          </div>
+        
+        </div>
+
+
+
+
+      </div>
+      <div class="modal-footer">
+        <div class="cancelModalButton addAccountModalReset checkupdate" data-dismiss="modal">cancel</div>
+      </div>
+  </div>
+    
+  </div>
+</div>
+
+
+  <!-- Profile Modal -->
+  <div class="modal fade" id="createProfileModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div style="margin-top: -100px;" class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close profileModalReset" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Create Profile</h4>
+        </div>
+        <div class="modal-body">
+
+          <div style="display: none;" class="ProfileStage0">
+              <div id="create-single-profile" class="modal-half checkupdate">
+                <div class="profile-option-1"><i class="fas fa-child"></i></div>
+                <div class="profile-option-title">Single profile</div>
+              </div>
+              <div id="create-multiple-profile" class="modal-half checkupdate">
+                <div class="profile-option-1"><i class="fas fa-users"></i></div>
+                <div class="profile-option-title">Multiple Profiles</div>
+              </div>
+          </div>
+
+          <div style="display: none;" class="ProfileStage1">
+
+            <div class="input-row">
+              <div class="input">
+              <div class="input-name">Profile Name</div>
+              <input class="profileName" id="profileName" placeholder="Profile Name">
+              </div>
+            </div>
+            <div class="input-row">
+              <div class="input">
+              <div class="input-name">Catchall</div>
+              <input class="catchallInput" id="catchallInput" placeholder="example.com">
+              </div>
+            </div>
+
+            <div class="input-row">
+              <div class="input">
+              <div class="input-name">Profile Color</div>
+              <input class="profileColor" id="profileColor" style="border:none;" type="color" value="#8466e0">
+              </div>
+            </div>
+
+
+            <div class="profile-create-button-holder">
+                <div id="editHideBack" class="checkupdate profile-create-button previousProfileStage">Back</div>
+                <div class="checkupdate profile-create-button nextProfileStage">Next</div>
+            </div>
+
+          </div>
+
+          <div style="display: none;" class="ProfileStage2">
+          <div class="row-space-container">
+            <div class="input-row row-shrink-half l">
+              <div class="input">
+              <div class="input-name">Address</div>
+              <input class="addressInput" id="addressInput" placeholder="Address">
+              </div>
+            </div>
+            <div class="input-row row-shrink-half r">
+              <div class="input">
+              <div class="input-name">Apt suite</div>
+              <input class="aptInput" id="aptInput" placeholder="apt suit(Optional)">
+              </div>
+            </div>
+          </div>
+          <div class="row-space-container">
+            <div class="input-row row-shrink-half l">
+              <div class="input">
+              <div class="input-name">Country</div>
+              <select class="wide nice-select profileCountry" id="profileCountry" placeholder="Select a country...">
+                <option value="AF">Afghanistan</option>
+                <option value="AX">&Aring;land Islands</option>
+                <option value="AL">Albania</option>
+                <option value="DZ">Algeria</option>
+                <option value="AS">American Samoa</option>
+                <option value="AD">Andorra</option>
+                <option value="AO">Angola</option>
+                <option value="AI">Anguilla</option>
+                <option value="AQ">Antarctica</option>
+                <option value="AG">Antigua and Barbuda</option>
+                <option value="AR">Argentina</option>
+                <option value="AM">Armenia</option>
+                <option value="AW">Aruba</option>
+                <option value="AU">Australia</option>
+                <option value="AT">Austria</option>
+                <option value="AZ">Azerbaijan</option>
+                <option value="BS">Bahamas</option>
+                <option value="BH">Bahrain</option>
+                <option value="BD">Bangladesh</option>
+                <option value="BB">Barbados</option>
+                <option value="BY">Belarus</option>
+                <option value="BE">Belgium</option>
+                <option value="BZ">Belize</option>
+                <option value="BJ">Benin</option>
+                <option value="BM">Bermuda</option>
+                <option value="BT">Bhutan</option>
+                <option value="BO">Bolivia, Plurinational State of</option>
+                <option value="BA">Bosnia and Herzegovina</option>
+                <option value="BW">Botswana</option>
+                <option value="BV">Bouvet Island</option>
+                <option value="BR">Brazil</option>
+                <option value="IO">British Indian Ocean Territory</option>
+                <option value="BN">Brunei Darussalam</option>
+                <option value="BG">Bulgaria</option>
+                <option value="BF">Burkina Faso</option>
+                <option value="BI">Burundi</option>
+                <option value="KH">Cambodia</option>
+                <option value="CM">Cameroon</option>
+                <option value="CA">Canada</option>
+                <option value="CV">Cape Verde</option>
+                <option value="KY">Cayman Islands</option>
+                <option value="CF">Central African Republic</option>
+                <option value="TD">Chad</option>
+                <option value="CL">Chile</option>
+                <option value="CN">China</option>
+                <option value="CX">Christmas Island</option>
+                <option value="CC">Cocos (Keeling) Islands</option>
+                <option value="CO">Colombia</option>
+                <option value="KM">Comoros</option>
+                <option value="CG">Congo</option>
+                <option value="CD">Congo, the Democratic Republic of the</option>
+                <option value="CK">Cook Islands</option>
+                <option value="CR">Costa Rica</option>
+                <option value="CI">C&ocirc;te d'Ivoire</option>
+                <option value="HR">Croatia</option>
+                <option value="CU">Cuba</option>
+                <option value="CY">Cyprus</option>
+                <option value="CZ">Czech Republic</option>
+                <option value="DK">Denmark</option>
+                <option value="DJ">Djibouti</option>
+                <option value="DM">Dominica</option>
+                <option value="DO">Dominican Republic</option>
+                <option value="EC">Ecuador</option>
+                <option value="EG">Egypt</option>
+                <option value="SV">El Salvador</option>
+                <option value="GQ">Equatorial Guinea</option>
+                <option value="ER">Eritrea</option>
+                <option value="EE">Estonia</option>
+                <option value="ET">Ethiopia</option>
+                <option value="FK">Falkland Islands (Malvinas)</option>
+                <option value="FO">Faroe Islands</option>
+                <option value="FJ">Fiji</option>
+                <option value="FI">Finland</option>
+                <option value="FR">France</option>
+                <option value="GF">French Guiana</option>
+                <option value="PF">French Polynesia</option>
+                <option value="TF">French Southern Territories</option>
+                <option value="GA">Gabon</option>
+                <option value="GM">Gambia</option>
+                <option value="GE">Georgia</option>
+                <option value="DE">Germany</option>
+                <option value="GH">Ghana</option>
+                <option value="GI">Gibraltar</option>
+                <option value="GR">Greece</option>
+                <option value="GL">Greenland</option>
+                <option value="GD">Grenada</option>
+                <option value="GP">Guadeloupe</option>
+                <option value="GU">Guam</option>
+                <option value="GT">Guatemala</option>
+                <option value="GG">Guernsey</option>
+                <option value="GN">Guinea</option>
+                <option value="GW">Guinea-Bissau</option>
+                <option value="GY">Guyana</option>
+                <option value="HT">Haiti</option>
+                <option value="HM">Heard Island and McDonald Islands</option>
+                <option value="VA">Holy See (Vatican City State)</option>
+                <option value="HN">Honduras</option>
+                <option value="HK">Hong Kong</option>
+                <option value="HU">Hungary</option>
+                <option value="IS">Iceland</option>
+                <option value="IN">India</option>
+                <option value="ID">Indonesia</option>
+                <option value="IR">Iran, Islamic Republic of</option>
+                <option value="IQ">Iraq</option>
+                <option value="IE">Ireland</option>
+                <option value="IM">Isle of Man</option>
+                <option value="IL">Israel</option>
+                <option value="IT">Italy</option>
+                <option value="JM">Jamaica</option>
+                <option value="JP">Japan</option>
+                <option value="JE">Jersey</option>
+                <option value="JO">Jordan</option>
+                <option value="KZ">Kazakhstan</option>
+                <option value="KE">Kenya</option>
+                <option value="KI">Kiribati</option>
+                <option value="KP">Korea, Democratic People's Republic of</option>
+                <option value="KR">Korea, Republic of</option>
+                <option value="KW">Kuwait</option>
+                <option value="KG">Kyrgyzstan</option>
+                <option value="LA">Lao People's Democratic Republic</option>
+                <option value="LV">Latvia</option>
+                <option value="LB">Lebanon</option>
+                <option value="LS">Lesotho</option>
+                <option value="LR">Liberia</option>
+                <option value="LY">Libyan Arab Jamahiriya</option>
+                <option value="LI">Liechtenstein</option>
+                <option value="LT">Lithuania</option>
+                <option value="LU">Luxembourg</option>
+                <option value="MO">Macao</option>
+                <option value="MK">Macedonia, the former Yugoslav Republic of</option>
+                <option value="MG">Madagascar</option>
+                <option value="MW">Malawi</option>
+                <option value="MY">Malaysia</option>
+                <option value="MV">Maldives</option>
+                <option value="ML">Mali</option>
+                <option value="MT">Malta</option>
+                <option value="MH">Marshall Islands</option>
+                <option value="MQ">Martinique</option>
+                <option value="MR">Mauritania</option>
+                <option value="MU">Mauritius</option>
+                <option value="YT">Mayotte</option>
+                <option value="MX">Mexico</option>
+                <option value="FM">Micronesia, Federated States of</option>
+                <option value="MD">Moldova, Republic of</option>
+                <option value="MC">Monaco</option>
+                <option value="MN">Mongolia</option>
+                <option value="ME">Montenegro</option>
+                <option value="MS">Montserrat</option>
+                <option value="MA">Morocco</option>
+                <option value="MZ">Mozambique</option>
+                <option value="MM">Myanmar</option>
+                <option value="NA">Namibia</option>
+                <option value="NR">Nauru</option>
+                <option value="NP">Nepal</option>
+                <option value="NL">Netherlands</option>
+                <option value="AN">Netherlands Antilles</option>
+                <option value="NC">New Caledonia</option>
+                <option value="NZ">New Zealand</option>
+                <option value="NI">Nicaragua</option>
+                <option value="NE">Niger</option>
+                <option value="NG">Nigeria</option>
+                <option value="NU">Niue</option>
+                <option value="NF">Norfolk Island</option>
+                <option value="MP">Northern Mariana Islands</option>
+                <option value="NO">Norway</option>
+                <option value="OM">Oman</option>
+                <option value="PK">Pakistan</option>
+                <option value="PW">Palau</option>
+                <option value="PS">Palestinian Territory, Occupied</option>
+                <option value="PA">Panama</option>
+                <option value="PG">Papua New Guinea</option>
+                <option value="PY">Paraguay</option>
+                <option value="PE">Peru</option>
+                <option value="PH">Philippines</option>
+                <option value="PN">Pitcairn</option>
+                <option value="PL">Poland</option>
+                <option value="PT">Portugal</option>
+                <option value="PR">Puerto Rico</option>
+                <option value="QA">Qatar</option>
+                <option value="RE">R&eacute;union</option>
+                <option value="RO">Romania</option>
+                <option value="RU">Russian Federation</option>
+                <option value="RW">Rwanda</option>
+                <option value="BL">Saint Barth&eacute;lemy</option>
+                <option value="SH">Saint Helena, Ascension and Tristan da Cunha</option>
+                <option value="KN">Saint Kitts and Nevis</option>
+                <option value="LC">Saint Lucia</option>
+                <option value="MF">Saint Martin (French part)</option>
+                <option value="PM">Saint Pierre and Miquelon</option>
+                <option value="VC">Saint Vincent and the Grenadines</option>
+                <option value="WS">Samoa</option>
+                <option value="SM">San Marino</option>
+                <option value="ST">Sao Tome and Principe</option>
+                <option value="SA">Saudi Arabia</option>
+                <option value="SN">Senegal</option>
+                <option value="RS">Serbia</option>
+                <option value="SC">Seychelles</option>
+                <option value="SL">Sierra Leone</option>
+                <option value="SG">Singapore</option>
+                <option value="SK">Slovakia</option>
+                <option value="SI">Slovenia</option>
+                <option value="SB">Solomon Islands</option>
+                <option value="SO">Somalia</option>
+                <option value="ZA">South Africa</option>
+                <option value="GS">South Georgia and the South Sandwich Islands</option>
+                <option value="ES">Spain</option>
+                <option value="LK">Sri Lanka</option>
+                <option value="SD">Sudan</option>
+                <option value="SR">Suriname</option>
+                <option value="SJ">Svalbard and Jan Mayen</option>
+                <option value="SZ">Swaziland</option>
+                <option value="SE">Sweden</option>
+                <option value="CH">Switzerland</option>
+                <option value="SY">Syrian Arab Republic</option>
+                <option value="TW">Taiwan, Province of China</option>
+                <option value="TJ">Tajikistan</option>
+                <option value="TZ">Tanzania, United Republic of</option>
+                <option value="TH">Thailand</option>
+                <option value="TL">Timor-Leste</option>
+                <option value="TG">Togo</option>
+                <option value="TK">Tokelau</option>
+                <option value="TO">Tonga</option>
+                <option value="TT">Trinidad and Tobago</option>
+                <option value="TN">Tunisia</option>
+                <option value="TR">Turkey</option>
+                <option value="TM">Turkmenistan</option>
+                <option value="TC">Turks and Caicos Islands</option>
+                <option value="TV">Tuvalu</option>
+                <option value="UG">Uganda</option>
+                <option value="UA">Ukraine</option>
+                <option value="AE">United Arab Emirates</option>
+                <option value="GB">United Kingdom</option>
+                <option value="US">United States</option>
+                <option value="UM">United States Minor Outlying Islands</option>
+                <option value="UY">Uruguay</option>
+                <option value="UZ">Uzbekistan</option>
+                <option value="VU">Vanuatu</option>
+                <option value="VE">Venezuela, Bolivarian Republic of</option>
+                <option value="VN">Viet Nam</option>
+                <option value="VG">Virgin Islands, British</option>
+                <option value="VI">Virgin Islands, U.S.</option>
+                <option value="WF">Wallis and Futuna</option>
+                <option value="EH">Western Sahara</option>
+                <option value="YE">Yemen</option>
+                <option value="ZM">Zambia</option>
+                <option value="ZW">Zimbabwe</option>
+            </select>
+              </div>
+            </div>
+            <div class="input-row row-shrink-half r">
+              <div class="input">
+              <div class="input-name">City</div>
+              <input class="cityInput" id="cityInput" placeholder="City">
+              </div>
+            </div>
+          </div>
+          <div class="row-space-container">
+            <div class="input-row row-shrink-half l">
+              <div class="input">
+              <div class="input-name">State / Province</div>
+              <select class="wide nice-select profileState" id="profileState" placeholder="Select a State / Province">
+                <option value="AL">Alabama</option>
+                <option value="AK">Alaska</option>
+                <option value="AZ">Arizona</option>
+                <option value="AR">Arkansas</option>
+                <option value="CA">California</option>
+                <option value="CO">Colorado</option>
+                <option value="CT">Connecticut</option>
+                <option value="DE">Delaware</option>
+                <option value="DC" selected>District of Columbia</option>
+                <option value="FL">Florida</option>
+                <option value="GA">Georgia</option>
+                <option value="HI">Hawaii</option>
+                <option value="ID">Idaho</option>
+                <option value="IL">Illinois</option>
+                <option value="IN">Indiana</option>
+                <option value="IA">Iowa</option>
+                <option value="KS">Kansas</option>
+                <option value="KY">Kentucky</option>
+                <option value="LA">Louisiana</option>
+                <option value="ME">Maine</option>
+                <option value="MD">Maryland</option>
+                <option value="MA">Massachusetts</option>
+                <option value="MI">Michigan</option>
+                <option value="MN">Minnesota</option>
+                <option value="MS">Mississippi</option>
+                <option value="MO">Missouri</option>
+                <option value="MT">Montana</option>
+                <option value="NE">Nebraska</option>
+                <option value="NV">Nevada</option>
+                <option value="NH">New Hampshire</option>
+                <option value="NJ">New Jersey</option>
+                <option value="NM">New Mexico</option>
+                <option value="NY">New York</option>
+                <option value="NC">North Carolina</option>
+                <option value="ND">North Dakota</option>
+                <option value="OH">Ohio</option>
+                <option value="OK">Oklahoma</option>
+                <option value="OR">Oregon</option>
+                <option value="PA">Pennsylvania</option>
+                <option value="RI">Rhode Island</option>
+                <option value="SC">South Carolina</option>
+                <option value="SD">South Dakota</option>
+                <option value="TN">Tennessee</option>
+                <option value="TX">Texas</option>
+                <option value="UT">Utah</option>
+                <option value="VT">Vermont</option>
+                <option value="VA">Virginia</option>
+                <option value="WA">Washington</option>
+                <option value="WV">West Virginia</option>
+                <option value="WI">Wisconsin</option>
+                <option value="WY" selected>Wyoming</option>
+              </select>
+              </div>
+            </div>
+
+            <div class="input-row row-shrink-half r">
+              <div class="input">
+              <div class="input-name">Zip code</div>
+              <input class="zipInput" id="zipInput" placeholder="Zip code">
+              </div>
+            </div>
+          </div>
+
+            <div class="profile-create-button-holder">
+                <div class="checkupdate profile-create-button previousProfileStage">Back</div>
+                <div id="createNewProfile" class="checkupdate profile-create-button nextProfileStage" data-dismiss="modal">Done</div>
+            </div>
+
+          </div>
+
+
+        </div>
+        <div class="modal-footer">
+          <div class="cancelModalButton profileModalReset" data-dismiss="modal">cancel</div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+
+  <!-- Proxy Modal -->
+  <div class="modal fade proxyModalReset" id="addProxyModal" role="dialog">
+    <div class="modal-dialog">
+    
+  <!-- Modal content-->
+  <div style="margin-top: -100px;" class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close proxyModalReset" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Create Proxy List</h4>
+        </div>
+        <div class="modal-body">
+
+          <div style="display: none;" class="ProxyStage0">
+
+            <div class="input-row">
+              <div class="input">
+              <div  class="input-name">List Name</div>
+              <input id="proxy-list-name-input" placeholder="Proxy List Name">
+              </div>
+            </div>
+
+            <div class="input-row">
+              <div class="input">
+              <div class="input-name">List Color</div>
+              <input id="proxy-list-color" style="border:none;" type="color" value="#8466e0">
+              </div>
+            </div>
+
+            <div class="profile-create-button-holder">
+                <!-- <div class="checkupdate profile-create-button previousProxyStage proxyModalReset" data-dismiss="modal">Cancel</div> -->
+                <div class="checkupdate profile-create-button nextProxyStage">Next</div>
+            </div>
+
+          </div>
+
+          <div style="display: none;" class="ProxyStage1">
+
+            <div style="height: 320px;" class="input-row">
+              <div style="height: 300px;" class="input">
+              <div class="input-name">Proxies</div>
+              <textarea class="proxy-textarea" id="profileName" placeholder="Paste your proxies here. Format: HOST:PORT:USER:PASS,HOST2:PORT2:USER2:PASS2"></textarea>
+              </div>
+            </div>
+
+
+
+            <div class="profile-create-button-holder">
+                <div class="checkupdate profile-create-button previousProxyStage">Back</div>
+                <div class="checkupdate profile-create-button nextProxyStage">Next</div>
+            </div>
+
+          </div>
+
+          <div style="display: none;" class="ProxyStage2">
+
+            <div class="proxy-stat-area">
+<!-- 
+  Maybe we use this feature in the future, but right now we don't need it
+              <div class="proxy-modal-stat">
+                <div class="proxy-stat-large" style="color: #91ff75;"><i class="fas fa-check-circle"></i> 102</div>
+                <div class="proxy-stat-large-text">SUCCESSFUL PROXIES</div>
+              </div>
+
+              <div class="proxy-modal-stat">
+                <div class="proxy-stat-large" style="color: #ff7575;"><i class="fas fa-times-circle"></i> 102</div>
+                <div class="proxy-stat-large-text">FAILED PROXIES</div>
+              </div>
+-->
+              <div class="proxy-modal-stat">
+                <div class="proxy-stat-large" style="color: #f1ff75;">
+                  <i class="fas fa-bolt" aria-hidden="true"></i>
+                  <b id="proxy-counter" class="stat-large-counter-text">
+                    102
+                  </b>
+                  </div>
+                <div class="proxy-stat-large-text">TOTAL PROXIES</div>
+              </div>
+            </div>
+
+
+            <div class="profile-create-button-holder">
+                <div class="checkupdate profile-create-button previousProxyStage">Back</div>
+                <div id="createProxyList" class="checkupdate profile-create-button" data-dismiss="modal">Done</div>
+            </div>
+
+          </div>
+
+
+        </div>
+        <div class="modal-footer">
+          <div class="cancelModalButton proxyModalReset checkupdate" data-dismiss="modal">cancel</div>
+        </div>
+    </div>
+      
+    </div>
+  </div>
+
+
+  
+   <!-- Create Task Modal -->
+   <div class="modal fade" id="createTaskModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div style="margin-top: -100px;" class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close createBackToStart" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Create Task</h4>
+        </div>
+        <div class="modal-body">
+
+          <div class="CreateTaskStartup">
+              <!-- <div id="create-nike-task" class="modal-half checkupdate">
+                <div class="profile-option-1"><i class="fas fa-check"></i></div>
+                <div class="profile-option-title">NIKE / SNKRS</div>
+              </div>
+              <div id="create-amazon-task" class="modal-half checkupdate">
+                <div class="profile-option-1"><i class="fab fa-amazon"></i></div>
+                <div class="profile-option-title">AMAZON</div>
+              </div> -->
+
+              <div class="account-add-container-select-store">
+                <label data-toggle="tooltip" data-placement="top" title="Best Buy" class="brand-select-container">
+                  <input type="radio" name="createTaskBrands" value="bestbuy">
+                  <div class="brand-select bestbuy-acc"></div>
+                </label>
+                <label data-toggle="tooltip" data-placement="top" title="Amazon" class="brand-select-container">
+                  <input type="radio" checked="checked" name="createTaskBrands" value="amazon">
+                  <div class="brand-select amazon-acc"></div>
+                </label>
+                <label data-toggle="tooltip" data-placement="top" title="Nike" class="brand-select-container">
+                  <input type="radio" name="createTaskBrands" value="nike">
+                  <div class="brand-select nike-acc"></div>
+                </label>
+                <label data-toggle="tooltip" data-placement="top" title="Outlook" class="brand-select-container">
+                  <input type="radio" name="createTaskBrands" value="outlook" disabled>
+                  <div class="brand-select outlook-acc"></div>
+                </label>
+                <label data-toggle="tooltip" data-placement="top" title="Gmail" class="brand-select-container">
+                  <input type="radio" name="createTaskBrands" value="gmail" disabled>
+                  <div class="brand-select gmail-acc"></div>
+                </label>
+                <label data-toggle="tooltip" data-placement="top" title="Discord" class="brand-select-container">
+                  <input type="radio" name="createTaskBrands" value="discord" disabled>
+                  <div class="brand-select discord-acc"></div>
+                </label>
+                <label data-toggle="tooltip" data-placement="top" title="Shopify" class="brand-select-container">
+                  <input type="radio" name="createTaskBrands" value="shopify" disabled>
+                  <div class="brand-select shopify-acc"></div>
+                </label>
+                <label data-toggle="tooltip" data-placement="top" title="Walmart" class="brand-select-container">
+                  <input type="radio" name="createTaskBrands" value="walmart" disabled>
+                  <div class="brand-select walmart-acc"></div>
+                </label>
+              </div>
+
+              <!-- <div style="display: none;" class="checkupdate profile-create-button">Back</div> -->
+
+              <!-- <div class="checkupdate profile-create-button createQuantity">Next</div> -->
+
+              <div class="profile-create-button-holder">
+
+                <div style="display: none;" id="create-amazon-task" class="checkupdate profile-create-button nextAmazon">Next</div>
+
+                <div style="display: none;" id="create-nike-task" class="checkupdate profile-create-button nextNike">Next</div>
+  
+              </div>
+
+
+          </div>
+
+          <div style="display: none;" class="NikeCreateOptions">
+            <div style="height: 130px;width: 100%;">
+              <div id="create-nike-task-warmer" class="modal-third checkupdate goToCreateConfig">
+                <div class="profile-option-1"><i class="fas fa-fire"></i></div>
+                <div class="profile-option-title">NIKE WARMER</div>
+              </div>
+              <div id="create-nike-task-nosms" class="modal-third checkupdate goToCreateConfig">
+                <div class="profile-option-1"><i class="fas fa-phone-slash"></i></div>
+                <div class="profile-option-title">NIKE GEN NO SMS</div>
+              </div>
+              <div id="create-nike-task-sms" class="modal-third checkupdate goToCreateConfig">
+                <div class="profile-option-1"><i class="fas fa-mobile-alt"></i></div>
+                <div class="profile-option-title">NIKE GEN SMS</div>
+              </div>
+            </div>
+
+            <div class="profile-create-button-holder">
+              <div class="checkupdate profile-create-button createBackToStart">Back</div>
+            </div>
+
+          </div>
+
+          <div style="display: none;" class="AmazonCreateOptions">
+            <div style="height: 130px;width: 100%;">
+              <div id="create-amazon-gen" class="modal-half checkupdate goToCreateConfig">
+                <div class="profile-option-1"><i class="fas fa-user-cog"></i></div>
+                <div class="profile-option-title">AMAZON GEN</div>
+              </div>
+              <div id="create-amazon-warmer" class="modal-half checkupdate goToCreateConfig">
+                <div class="profile-option-1"><i class="fas fa-fire"></i></div>
+                <div class="profile-option-title">AMAZON WARMER</div>
+              </div>
+            </div>
+
+            <div class="profile-create-button-holder">
+              <div class="checkupdate profile-create-button createBackToStart">Back</div>
+            </div>
+
+          </div>
+
+          <div style="display: none;" class="CreateTaskConfig">
+
+            <!-- CREATE TASK CONFIG CODE \/ \/ -->
+            <div style="display:none;" class="input-row">
+              <div class="input">
+              <div class="input-name">Task Type</div>
+                <select id="taskTypeHidden" placeholder="task type holder...">
+                  <option value="NikeWarmer">Nike Warmer</option>
+                  <option value="NikeGenNoSMS">Nike Gen No SMS</option>
+                  <option value="NikeGenSMS">Nike Gen SMS</option>
+                  <option value="AmazonGen">Amazon Gen</option>
+                  <option value="AmazonWarmer">Amazon Warmer</option>
+                </select>
+              </div>
+            </div>
+
+            
+
+            <div class="input-row">
+              <div class="input">
+              <div class="input-name">Profile</div>
+                <select class="wide nice-select" id="profileSelector" placeholder="Select a profile...">
+                </select>
+                
+              </div>
+            </div>
+
+            <div class="input-row">
+              <div class="input">
+              <div class="input-name">Proxy list</div>
+                <select class="wide nice-select" id="proxyCreateTask" placeholder="Select a proxy...">
+                  <option data-value="" value="">Empty</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="input-row">
+              <div id="captcha-selector" class="input">
+              <div class="input-name">Captcha Provider</div>
+                <select class="wide nice-select" id="captchaProviderTask" placeholder="Select captcha...">
+                  <option value="2cap">2Captcha</option>
+                  <option value="anticap">Anti-Captcha</option>
+                  <!--<option value="capmonster">Captcha Monster</option>-->
+                </select>
+              </div>
+            </div>
+
+            <!-- CREATE TASK CONFIG CODE /\ /\ -->
+
+            <div class="profile-create-button-holder">
+
+              <div style="display: none;" class="checkupdate profile-create-button createBackToNike">Back</div>
+
+              <div style="display: none;" class="checkupdate profile-create-button createBackToAmazon">Back</div>
+
+              <div class="checkupdate profile-create-button createQuantity">Next</div>
+
+            </div>
+
+
+
+          </div>
+
+          <div style="display: none;" class="CreateTaskQuantity">
+
+            <div class="input-row">
+              <div class="input">
+              <div class="input-name">Task Quantity</div>
+              <input id="taskQuantityInput"min="1" max="100" type="number" placeholder="Task Quantity">
+              </div>
+            </div>
+
+            <div class="slidecontainer">
+              <p style="margin-bottom: 20px;margin-top: 10px;"><b style="display: none;" id="sliderValueDisplay"></b> or</p>
+              <input type="range" min="1" max="100" value="51" class="slider" id="taskQuantitySlider">
+            </div>
+
+            <div class="profile-create-button-holder">
+
+              <div class="checkupdate profile-create-button goToCreateConfig">Back</div>
+
+              <div id="finishTaskSetup" class="checkupdate profile-create-button createBackToStart" data-dismiss="modal">Create</div>
+
+            </div>
+
+
+
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <div class="cancelModalButton createTaskModalReset createBackToStart" data-dismiss="modal">cancel</div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+
+<!-- partial -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src='https://kit.fontawesome.com/b57cb2194c.js'></script>
+<script src="js/index.js"></script>
+<script src="js/twitter.js"></script>
+<script src="js/profileTech.js"></script>
+<script src="js/jquery.nice-select.min.js"></script>
+<script src="js/fastclick.js"></script>
+<script src="js/prism.js"></script>
+<script src="js/toast.js"></script>
+<script src="js/testcall.js"></script>
+<script src="js/client.js"></script>
+<script src="js/taskCreator.js"></script>
+<script src="js/accounts.js"></script>
+<script type="module" src="js/renderer.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+</body>
+</html>
