@@ -1,14 +1,18 @@
 # Set directory for installation - Chocolatey does not lock
 # down the directory if not the default
-$InstallDir='C:\ProgramData\chocoportable'
-$env:ChocolateyInstall="$InstallDir"
 
-# If your PowerShell Execution policy is restrictive, you may
-# not be able to get around that. Try setting your session to
-# Bypass.
-Set-ExecutionPolicy Bypass -Scope Process -Force;
+if ($env:ChocolateyInstall -eq ""){
+    $InstallDir='C:\ProgramData\chocoportable'
+    $env:ChocolateyInstall="$InstallDir"
 
-# https://chocolatey.org/install
-iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+    # If your PowerShell Execution policy is restrictive, you may
+    # not be able to get around that. Try setting your session to
+    # Bypass.
+    Set-ExecutionPolicy Bypass -Scope Process -Force;
 
-choco install git
+    # https://chocolatey.org/install
+    iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+}
+
+choco install git -y
+Pause
