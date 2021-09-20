@@ -3,8 +3,12 @@
 *.pyz
 *.pkg
 *.manifest
-*.json
 buildFile
+accounts.json
+profiles.json
+proxies.json
+sessions.json
+settings.json
 test.py
 __pycache__
 *.png
