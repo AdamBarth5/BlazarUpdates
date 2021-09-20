@@ -1,7 +1,7 @@
 # Set directory for installation - Chocolatey does not lock
 # down the directory if not the default
 
-if ($env:ChocolateyInstall -eq ""){
+if ($env:ChocolateyInstall -eq $null){
     $InstallDir='C:\ProgramData\chocoportable'
     $env:ChocolateyInstall="$InstallDir"
 
@@ -15,4 +15,5 @@ if ($env:ChocolateyInstall -eq ""){
 }
 
 choco install git -y
+git clone https://github.com/KatIsCoding/BlazarUpdates.git
 Pause
