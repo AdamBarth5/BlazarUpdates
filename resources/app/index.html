@@ -266,7 +266,37 @@
             </table>
 
           </div>
+          <button class="account-collapsible">
+            <div class="collapsible-brand walmart-acc"></div>
+            <div class="account-collapsible-store-name">Walmart</div>
+            <div class="account-collapsible-amount"><!--<b id="amazonTaskCount">0</b> Tasks</div>-->
+          </button>
+          <div class="account-content">
+            <table id="walmartTable" style="width: 100%;margin-bottom: 10px;">
+              <tr class="table-top">
+                <th class="rounded-left">Type</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>Status</th>
+                <!--<th class="rounded-right">Actions</th>-->
+              </tr>
+            
+              <!--<tr>
+                <td class="rounded-left">Exmaple@imsoxela.com</td>
+                <td>xela@gmail</td>
+                <td>********</td>
+                <td>Idle</td>
+                <td class="rounded-right">
+                  <button class="action-butt" data-toggle="tooltip" data-placement="top" title="Play task!"><i class="fas fa-play"></i></button>
+                  <button class="action-butt" data-toggle="tooltip" data-placement="top" title="Go to login!"><i class="fas fa-share"></i></button>
+                  <button class="action-butt" data-toggle="tooltip" data-placement="top" title="Delete from list"><i class="fas fa-trash-alt"></i></button>
+                  <button class="action-butt" data-toggle="tooltip" data-placement="top" title="copy"><i class="fas fa-copy"></i></button>
+                </td>-->
+              </tr>
+              
+            </table>
 
+          </div>
           <!--<button class="account-collapsible">
             <div class="collapsible-brand walmart-acc"></div>
             <div class="account-collapsible-store-name">Walmart</div>
@@ -490,6 +520,35 @@
                   
                   </table>
                 </div>
+                <button class="account-collapsible">
+                  <div class="collapsible-brand walmart-acc"></div>
+                  <div class="account-collapsible-store-name">Walmart</div>
+                  <div class="account-collapsible-amount"><!--<b>1</b> Accounts--></div>
+                </button>
+                <div class="account-content">
+                  <table id="walmartAccounts" style="width: 100%;margin-bottom: 10px;">
+                    <tr class="table-top">
+                      <th class="rounded-left">Email</th>
+                      <!--<th>Name</th>-->
+                      <th>Password</th>
+                      <!--<th class="rounded-right">Actions</th>-->
+                    </tr>
+                  
+                    <!--<tr>
+                  <td class="rounded-left">Exmaple@imsoxela.com</td>
+                  <td>xela xela</td>
+                  <td>********</td>
+                  <td class="rounded-right">
+                    <button class="action-butt" data-toggle="tooltip" data-placement="top" title="Go to login!"><i class="fas fa-share"></i></button>
+                    <button class="action-butt" data-toggle="tooltip" data-placement="top" title="Delete from list"><i class="fas fa-trash-alt"></i></button>
+                    <button class="action-butt" data-toggle="tooltip" data-placement="top" title="copy"><i class="fas fa-copy"></i></button>
+                  </td>
+                </tr>-->
+                      
+              
+                
+                </table>
+              </div>
 
                               
                         
@@ -603,35 +662,6 @@
               </div>
 
             </div>
-                      
-            <button class="account-collapsible" style="padding-left: 10px;">
-              <div class="account-collapsible-store-name">2Captcha settings</div>
-              <div class="account-collapsible-amount">Configure 2Captcha settings</div>
-            </button>
-            <div class="account-content">
-              <div class="setting-title"><b>2</b>Captcha</div>
-
-              <div class="input-row">
-                <div class="input">
-                <div class="input-name">2Captcha</div>
-                <input id="2capkey" placeholder="2Captcha Key">
-                </div>
-              </div>
-
-              <div class="setting-button-holder">
-
-              <div id="reset2cap" class="button-sting exportButton">
-                <div class="button-sting-icon"><i class="fas fa-download"></i></div>
-                Reset
-              </div>
-              <div id="save2cap" class="button-sting importButton">
-                <div class="button-sting-icon"><i class="fas fa-upload"></i></div>
-                Save
-              </div>
-
-              </div>
-            </div>
-                      
             <button class="account-collapsible" style="padding-left: 10px;">
               <div class="account-collapsible-store-name">Anti-Captcha settings</div>
               <div class="account-collapsible-amount">Configure Anti-Captcha settings</div>
@@ -687,7 +717,33 @@
 
               </div>
             </div> --> 
-            
+            <button class="account-collapsible" style="padding-left: 10px;">
+              <div class="account-collapsible-store-name">OnlineSIM settings</div>
+              <div class="account-collapsible-amount">Configure OnlineSIM settings</div>
+            </button>
+            <div class="account-content">
+              <div class="setting-title"><b>Online</b>SIM</div>
+
+              <div class="input-row">
+                <div class="input">
+                <div class="input-name">OnlineSIM</div>
+                <input id="onlinesimkey" placeholder="OnlineSIM API Key">
+                </div>
+              </div>
+
+              <div class="setting-button-holder">
+
+              <div id="resetonlinesim" class="button-sting exportButton">
+                <div class="button-sting-icon"><i class="fas fa-download"></i></div>
+                Reset
+              </div>
+              <div id="saveonlinesim" class="button-sting importButton">
+                <div class="button-sting-icon"><i class="fas fa-upload"></i></div>
+                Save
+              </div>
+
+              </div>
+            </div>
             
             <button class="account-collapsible" style="padding-left: 10px;">
               <div class="account-collapsible-store-name">SMSRU settings</div>
@@ -1378,6 +1434,10 @@
                   <input type="radio" name="createTaskBrands" value="nike">
                   <div class="brand-select nike-acc"></div>
                 </label>
+                <label data-toggle="tooltip" data-placement="top" title="Walmart" class="brand-select-container">
+                  <input type="radio" name="createTaskBrands" value="walmart">
+                  <div class="brand-select walmart-acc"></div>
+                </label>
                 <label data-toggle="tooltip" data-placement="top" title="Outlook" class="brand-select-container">
                   <input type="radio" name="createTaskBrands" value="outlook" disabled>
                   <div class="brand-select outlook-acc"></div>
@@ -1393,10 +1453,6 @@
                 <label data-toggle="tooltip" data-placement="top" title="Shopify" class="brand-select-container">
                   <input type="radio" name="createTaskBrands" value="shopify" disabled>
                   <div class="brand-select shopify-acc"></div>
-                </label>
-                <label data-toggle="tooltip" data-placement="top" title="Walmart" class="brand-select-container">
-                  <input type="radio" name="createTaskBrands" value="walmart" disabled>
-                  <div class="brand-select walmart-acc"></div>
                 </label>
               </div>
 
@@ -1416,11 +1472,11 @@
           </div>
 
           <div style="display: none;" class="NikeCreateOptions">
-            <div style="height: 130px;width: 100%;">
-              <div id="create-nike-task-warmer" class="modal-third checkupdate goToCreateConfig">
+            <div style="height: 130px;width: 100%;" class="NikeCreateOptionsSelector">
+              <!--<div id="create-nike-task-warmer" class="modal-third checkupdate goToCreateConfig">
                 <div class="profile-option-1"><i class="fas fa-fire"></i></div>
                 <div class="profile-option-title">NIKE WARMER</div>
-              </div>
+              </div>-->
               <div id="create-nike-task-nosms" class="modal-third checkupdate goToCreateConfig">
                 <div class="profile-option-1"><i class="fas fa-phone-slash"></i></div>
                 <div class="profile-option-title">NIKE GEN NO SMS</div>

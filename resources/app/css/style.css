@@ -1739,3 +1739,7 @@ table th {
   color: #000;
 }
 
+.NikeCreateOptionsSelector {
+  display: flex;
+  justify-content: space-around;
+}
