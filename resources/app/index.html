@@ -54,7 +54,7 @@
         
         <div class="dash-left">
           <div class="size1">
-            <div id="task-counter" class="stat-large">102</div>
+            <div id="task-counter" class="stat-large">0</div>
             <div class="stat-large-text">TASKS</div>
           </div>
           <div class="size2">
@@ -63,19 +63,19 @@
               HISTORY
               <div class="graph" data-name="background" style="--percentage : 100; --fill: rgba(0,0,0,0.1) ;">
               </div>
-              <div class="graph" data-name="Failed" style="--percentage : 80; --fill: #e06666 ;">
+              <div class="graph" data-name="Failed" style="--percentage : 0; --fill: #e06666 ;">
               </div>
-              <div class="graph" data-name="Success" style="--percentage : 50; --fill: #6fe066 ;">
+              <div class="graph" data-name="Success" style="--percentage : 0; --fill: #6fe066 ;">
               </div>
               </div>
           </div>
           
           <div class="size2">
-            <div class="dashoverlayme">GO TO <b>DASHBOARD</b></div>
+            <!--<div class="dashoverlayme">GO TO <b>DASHBOARD</b></div>-->
               <div class="renestat">
                   <div class="stat-head">ACCOUNT <b>STATS</b></div>
                   
-                  <div class="renewal-title"><b>28</b> days until renwal</div>
+                  <div class="renewal-title"><b id="days-renewal">0</b> days until renwal</div>
                   <div class="renewal-bar">
                     <div class="renewal-bar-progress"></div>
                   </div>
@@ -84,8 +84,8 @@
           <div class="size1">
             <div class="stat-large" style="color: #f1ff75;">
               <i class="fas fa-bolt"></i>
-              <b id="proxy-counter" class="stat-large-counter-text">
-                102
+              <b class="stat-large-counter-text proxy-counter">
+                0
               </b>
             </div>
               
@@ -96,12 +96,12 @@
             <div class="stat-large" style="color: #7cff75;">
               <i class="fas fa-clipboard-list"></i>
               <b id="success-counter" class="stat-large-counter-text">
-                102
+                0
               </b>
             </div>
             <div class="stat-large-text">SUCCESSES</div>
           </div>
-          <div class="size1">
+          <!--<div class="size1">
             <div class="stat-large" style="color: #ffb875;">
               <i class="fas fa-pause-circle"></i> 
               <b id="idle-counter" class="stat-large-counter-text">
@@ -109,12 +109,12 @@
               </b>
             </div>
             <div class="stat-large-text">IDLE</div>
-          </div>
+          </div>-->
           <div class="size1">
             <div class="stat-large" style="color: #ff7575;">
               <i class="fas fa-times-circle"></i>
               <b id="failed-counter" class="stat-large-counter-text">
-                102
+                0
               </b>
               </div>
             <div class="stat-large-text">FAILED</div>
@@ -210,6 +210,39 @@
           </button>
           <div class="account-content">
             <table id="amazonTable" style="width: 100%;margin-bottom: 10px;">
+              <tr class="table-top">
+                <th class="rounded-left">Type</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>Status</th>
+                <!--<th class="rounded-right">Actions</th>-->
+              </tr>
+            
+              <!--<tr>
+                <td class="rounded-left">Exmaple@imsoxela.com</td>
+                <td>xela@gmail</td>
+                <td>********</td>
+                <td>Idle</td>
+                <td class="rounded-right">
+                  <button class="action-butt" data-toggle="tooltip" data-placement="top" title="Play task!"><i class="fas fa-play"></i></button>
+                  <button class="action-butt" data-toggle="tooltip" data-placement="top" title="Go to login!"><i class="fas fa-share"></i></button>
+                  <button class="action-butt" data-toggle="tooltip" data-placement="top" title="Delete from list"><i class="fas fa-trash-alt"></i></button>
+                  <button class="action-butt" data-toggle="tooltip" data-placement="top" title="copy"><i class="fas fa-copy"></i></button>
+                </td>-->
+              </tr>
+              
+            </table>
+
+          </div>
+
+          <!--Gmail-->
+          <button class="account-collapsible">
+            <div class="collapsible-brand gmail-acc"></div>
+            <div class="account-collapsible-store-name">Gmail</div>
+            <div class="account-collapsible-amount"><!--<b id="amazonTaskCount">0</b> Tasks</div>-->
+          </button>
+          <div class="account-content">
+            <table id="gmailTable" style="width: 100%;margin-bottom: 10px;">
               <tr class="table-top">
                 <th class="rounded-left">Type</th>
                 <th>Email</th>
@@ -491,6 +524,39 @@
                   </tr>-->
                 </table>
               </div>
+
+              <button class="account-collapsible">
+                <div class="collapsible-brand gmail-acc"></div>
+                <div class="account-collapsible-store-name">Gmail</div>
+                <div class="account-collapsible-amount"><!--<b>1</b> Accounts--></div>
+              </button>
+              <div class="account-content">
+
+                <table id="gmailAccounts" style="width: 100%;margin-bottom: 10px;">
+                  <tr class="table-top">
+                    <th class="rounded-left">Email</th>
+                    <!--<th>Name</th>-->
+                    <th>Password</th>
+                    <!--<th class="rounded-right">Actions</th>-->
+                  </tr>
+                
+                  <!--<tr>
+                    <td class="rounded-left">Exmaple@imsoxela.com</td>
+                    <td>xela xela</td>
+                    <td>********</td>
+                    <td class="rounded-right">
+                      <button class="action-butt" data-toggle="tooltip" data-placement="top" title="Go to login!"><i class="fas fa-share"></i></button>
+                      <button class="action-butt" data-toggle="tooltip" data-placement="top" title="Delete from list"><i class="fas fa-trash-alt"></i></button>
+                      <button class="action-butt" data-toggle="tooltip" data-placement="top" title="copy"><i class="fas fa-copy"></i></button>
+                    </td>
+                  </tr>-->
+                        
+                
+                  
+                </table>
+
+              </div>
+
                   <button class="account-collapsible">
                     <div class="collapsible-brand nike-acc"></div>
                     <div class="account-collapsible-store-name">Nike</div>
@@ -1371,11 +1437,11 @@
               <div class="proxy-modal-stat">
                 <div class="proxy-stat-large" style="color: #f1ff75;">
                   <i class="fas fa-bolt" aria-hidden="true"></i>
-                  <b id="proxy-counter" class="stat-large-counter-text">
-                    102
+                  <b class="stat-large-counter-text proxy-counter">
+                    0
                   </b>
                   </div>
-                <div class="proxy-stat-large-text">TOTAL PROXIES</div>
+                <div class="proxy-stat-large-text">CURRENT PROXIES</div>
               </div>
             </div>
 
@@ -1438,13 +1504,13 @@
                   <input type="radio" name="createTaskBrands" value="walmart">
                   <div class="brand-select walmart-acc"></div>
                 </label>
+                <label data-toggle="tooltip" data-placement="top" title="Gmail" class="brand-select-container">
+                  <input type="radio" name="createTaskBrands" value="gmail">
+                  <div class="brand-select gmail-acc"></div>
+                </label>
                 <label data-toggle="tooltip" data-placement="top" title="Outlook" class="brand-select-container">
                   <input type="radio" name="createTaskBrands" value="outlook" disabled>
                   <div class="brand-select outlook-acc"></div>
-                </label>
-                <label data-toggle="tooltip" data-placement="top" title="Gmail" class="brand-select-container">
-                  <input type="radio" name="createTaskBrands" value="gmail" disabled>
-                  <div class="brand-select gmail-acc"></div>
                 </label>
                 <label data-toggle="tooltip" data-placement="top" title="Discord" class="brand-select-container">
                   <input type="radio" name="createTaskBrands" value="discord" disabled>
